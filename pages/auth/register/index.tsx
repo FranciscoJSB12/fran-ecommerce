@@ -5,7 +5,7 @@ export default function RegisterPage() {
   return (
     <>
       <h2 className="text-gray-600 mb-6 italic">
-        Don't have an account yet? <strong>Register here!</strong>
+        Don&apos;t have an account yet? <strong>Register here!</strong>
       </h2>
       <AuthForm isLoggingIn={false} />
       <h3 className="mt-6 text-gray-600 italic text-sm">
