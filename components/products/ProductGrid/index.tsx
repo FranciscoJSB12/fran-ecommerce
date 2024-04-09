@@ -1,13 +1,33 @@
-import { ReactNode } from "react";
+import useShoppingCart from "@/hooks/products/useShoppingCart";
+import ProductCard from "../ProductCard";
+import ShoppingCart from "../shoppingCart";
+import ShoppingCartBtn from "@/components/products/ShoppingCartBtn";
+import type { ProductType } from "@/models/product";
 
 interface ProductGridProps {
-  children: ReactNode;
+  products: ProductType[];
 }
 
-export default function ProductGrid({ children }: ProductGridProps) {
+export default function ProductGrid({ products }: ProductGridProps) {
+  const { isShoppingCartOpen, openShoppingCart, closeShoppingCart } =
+    useShoppingCart();
+
   return (
-    <section className="w-full pt-5 grid grid-cols-1 justify-items-center gap-y-14 md:grid-cols-2 md:max-w-[636px] lg:grid-cols-3 lg:max-w-[944px]">
-      {children}
-    </section>
+    <>
+      <section className="w-full pt-5 grid grid-cols-1 justify-items-center gap-y-14 md:grid-cols-2 md:max-w-[636px] lg:grid-cols-3 lg:max-w-[944px]">
+        {products.map((p) => (
+          <ProductCard
+            product={p}
+            key={p.id}
+            openShoppingCart={openShoppingCart}
+          />
+        ))}
+      </section>
+      <ShoppingCart
+        isShoppingCartOpen={isShoppingCartOpen}
+        closeShoppingCart={closeShoppingCart}
+      />
+      <ShoppingCartBtn openShoppingCart={openShoppingCart} />
+    </>
   );
 }

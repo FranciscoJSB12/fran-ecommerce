@@ -7,11 +7,11 @@ export default function SearchBar() {
 
   const router = useRouter();
 
-  const changeValueHandler = (e: ChangeEvent<HTMLInputElement>) => {
+  const changeValueHandler = (e: ChangeEvent<HTMLInputElement>): void => {
     setValue(e.target.value);
   };
 
-  const submitFormHandler = (e: FormEvent<HTMLFormElement>) => {
+  const submitFormHandler = (e: FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
     if (value === "") return;
     router.push(`/search?q=${value.toLowerCase()}`);

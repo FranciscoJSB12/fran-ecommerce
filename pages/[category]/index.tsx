@@ -1,10 +1,10 @@
 import type { GetStaticProps, GetStaticPaths } from "next";
 import { fecthProducts } from "@/utils/fetchProducts";
+import CategoryLayout from "@/components/ui/CategoryLayout";
 import ProductGrid from "@/components/products/ProductGrid";
 import ProductCard from "@/components/products/ProductCard";
 import type { ProductType } from "@/models/product";
 import { PAGES_CATEGORIES } from "@/utils/pagesCategories";
-import SearchBar from "@/components/products/SearchBar";
 
 interface CategoryProps {
   category: string;
@@ -18,21 +18,13 @@ export default function Category({
   ok,
 }: CategoryProps) {
   return (
-    <>
-      <h2 className="text-gray-800 text-lg font-medium mb-4 italic">
-        {category.replace(/\b\w/g, (l) => l.toUpperCase())}
-      </h2>
-      <SearchBar />
-      {ok ? (
-        <ProductGrid>
-          {categoryProducts.map((p) => (
-            <ProductCard key={p.id} product={p} />
-          ))}
-        </ProductGrid>
-      ) : (
-        <p>Failed to fecth data</p>
-      )}
-    </>
+    <CategoryLayout
+      responseOk={ok}
+      productsQty={categoryProducts.length}
+      title={category}
+    >
+      <ProductGrid products={categoryProducts} />
+    </CategoryLayout>
   );
 }
 

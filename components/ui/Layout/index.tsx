@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
-import Navigation from "../Navigation";
 import { Inter } from "next/font/google";
+import Navigation from "../Navigation";
 
 const inter = Inter({ subsets: ["latin"] });
 

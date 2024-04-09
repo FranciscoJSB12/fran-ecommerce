@@ -1,7 +1,7 @@
 import type { GetServerSideProps } from "next";
+import CategoryLayout from "@/components/ui/CategoryLayout";
 import { fecthProducts } from "@/utils/fetchProducts";
 import type { ProductType } from "@/models/product";
-import SearchBar from "@/components/products/SearchBar";
 import ProductGrid from "@/components/products/ProductGrid";
 import ProductCard from "@/components/products/ProductCard";
 
@@ -11,26 +11,14 @@ interface SearchPageProps {
 }
 
 export default function SearchPage({ foundProducts, ok }: SearchPageProps) {
-  let view: JSX.Element = (
-    <ProductGrid>
-      {foundProducts.map((p) => (
-        <ProductCard key={p.id} product={p} />
-      ))}
-    </ProductGrid>
-  );
-
-  if (ok && foundProducts.length === 0) view = <p>Products not found</p>;
-
-  if (!ok) view = <p>Failed to fetch data</p>;
-
   return (
-    <>
-      <h2 className="text-gray-800 text-lg font-medium mb-4 italic">
-        Found Products
-      </h2>
-      <SearchBar />
-      {view}
-    </>
+    <CategoryLayout
+      responseOk={ok}
+      productsQty={foundProducts.length}
+      title="found products"
+    >
+      <ProductGrid products={foundProducts} />
+    </CategoryLayout>
   );
 }
 

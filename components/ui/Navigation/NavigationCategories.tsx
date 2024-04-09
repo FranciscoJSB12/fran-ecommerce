@@ -1,9 +1,13 @@
 import { CATEGORIES } from "@/utils/categories";
 import NavigationItem from "./NavigationItem";
 
-const categoriesToRender = Object.values(CATEGORIES);
+interface NavigationCategoryProps {
+  closeNavigation: () => void;
+}
 
-export default function NavigationCategories() {
+export default function NavigationCategories({
+  closeNavigation,
+}: NavigationCategoryProps) {
   return (
     <ul className="flex flex-col items-center gap-6 pb-5">
       <li className="hidden xlg:block">
@@ -11,8 +15,8 @@ export default function NavigationCategories() {
           franStore
         </h1>
       </li>
-      {categoriesToRender.map((c) => (
-        <li key={c}>
+      {Object.values(CATEGORIES).map((c) => (
+        <li onClick={closeNavigation} key={c}>
           <NavigationItem
             text={c.replace(/\b\w/g, (l) => l.toUpperCase())}
             href={c === CATEGORIES.all ? "/" : "/" + c}

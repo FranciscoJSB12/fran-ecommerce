@@ -1,10 +1,8 @@
 import type { GetStaticProps } from "next";
+import CategoryLayout from "@/components/ui/CategoryLayout";
 import ProductGrid from "@/components/products/ProductGrid";
-import ProductCard from "@/components/products/ProductCard";
-import ProductDetail from "@/components/products/ProductDetail";
-import SearchBar from "@/components/products/SearchBar";
 import type { ProductType } from "@/models/product";
-import { fecthProducts } from "../utils/fetchProducts";
+import { fecthProducts } from "@/utils/fetchProducts";
 
 interface HomeProps {
   ok: boolean;
@@ -13,19 +11,9 @@ interface HomeProps {
 
 export default function Home({ products, ok }: HomeProps) {
   return (
-    <>
-      <h2 className="text-gray-800 text-lg font-medium mb-4 italic">Home</h2>
-      <SearchBar />
-      {ok ? (
-        <ProductGrid>
-          {products.map((p) => (
-            <ProductCard key={p.id} product={p} />
-          ))}
-        </ProductGrid>
-      ) : (
-        <p>Failed to fetch data</p>
-      )}
-    </>
+    <CategoryLayout responseOk={ok} productsQty={products.length}>
+      <ProductGrid products={products} />
+    </CategoryLayout>
   );
 }
 

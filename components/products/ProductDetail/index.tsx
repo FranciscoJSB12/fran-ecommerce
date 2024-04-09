@@ -2,15 +2,6 @@ import { XMarkIcon } from "@heroicons/react/24/outline";
 import TransparentBackground from "@/components/ui/TransparentBackground";
 import type { ProductType } from "@/models/product";
 
-const currentProduct = {
-  id: "120c9c02-4002-42b1-b62a-1c9d2c92016a",
-  name: "Sausages",
-  category: "Clothes",
-  description: "The Football Is Good For Training And Recreational Purposes",
-  price: "887.00",
-  image: "https://picsum.photos/seed/BNmCcBXm/640/480",
-};
-
 interface ProductDetailProps {
   isProductDetailOpen: boolean;
   closeProductDetail: () => void;
@@ -38,7 +29,7 @@ export default function ProductDetail({
         <figure className="px-6">
           <img
             src={product.image}
-            alt={currentProduct.name}
+            alt={product.name}
             className="w-full h-full rounded-lg"
           />
         </figure>
