@@ -11,14 +11,16 @@ interface AuthFormState {
   password: string;
   firstName: string;
   lastName: string;
-  repeatPassword: string;
+  checkedPassword: string;
 }
 
 export default function AuthForm({ isLoggingIn }: AuthFormProps) {
   const [inputs, setInputs] = useState({} as AuthFormState);
 
   const changeHandler = (e: ChangeEvent<HTMLInputElement>) => {
-    setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    const name = e.target.name;
+    const value = e.target.value;
+    setInputs((values) => ({ ...values, [name]: value }));
   };
 
   const submitHandler = (e: FormEvent<HTMLFormElement>) => {
@@ -29,49 +31,51 @@ export default function AuthForm({ isLoggingIn }: AuthFormProps) {
   return (
     <form
       onSubmit={submitHandler}
-      className="w-full max-w-96 mx-auto flex flex-col items-center justify-center gap-5"
+      className="w-full max-w-96 mx-auto px-4 flex flex-col items-center justify-center gap-5"
     >
-      <AuthInput
-        name="email"
-        changeHandler={changeHandler}
-        placeHolder="Email"
-        type="email"
-        value={inputs.email}
-      />
       {!isLoggingIn && (
         <>
           <AuthInput
-            name="first name"
+            name="firstName"
+            placeHolder="First name"
             changeHandler={changeHandler}
-            placeHolder="First Name"
-            type="text"
             value={inputs.firstName}
           />
           <AuthInput
-            name="last name"
+            name="lastName"
+            placeHolder="Last name"
             changeHandler={changeHandler}
-            placeHolder="Last Name"
-            type="text"
             value={inputs.lastName}
           />
         </>
       )}
+
+      <AuthInput
+        name="email"
+        placeHolder="Email"
+        changeHandler={changeHandler}
+        value={inputs.email}
+      />
       <AuthInput
         name="password"
-        changeHandler={changeHandler}
-        placeHolder="Password"
         type="password"
+        placeHolder="Password"
+        changeHandler={changeHandler}
         value={inputs.password}
       />
+
       {!isLoggingIn && (
-        <AuthInput
-          name="repeat password"
-          changeHandler={changeHandler}
-          placeHolder="Repeat password"
-          type="password"
-          value={inputs.repeatPassword}
-        />
+        <>
+          <AuthInput
+            name="repeatPassword"
+            type="password"
+            placeHolder="Repeat password"
+            changeHandler={changeHandler}
+            value={inputs.checkedPassword}
+          />
+        </>
       )}
+
       <SubmitBtn />
     </form>
   );

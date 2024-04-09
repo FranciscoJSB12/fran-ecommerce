@@ -1,9 +1,9 @@
 interface TransparentBackgroundProps {
-  hiddenAfterStreching: boolean;
+  hiddenAfterStreching?: boolean;
 }
 
 export default function TransparentBackground({
-  hiddenAfterStreching,
+  hiddenAfterStreching = false,
 }: TransparentBackgroundProps) {
   return (
     <div

@@ -2,7 +2,7 @@ import { useState } from "react";
 import NavigationHeader from "./NavigationHeader";
 import NavigationCategories from "./NavigationCategories";
 import NavigationOptions from "./NavigationOptions";
-import TransparentBackground from "../../ui/TransparentBackground.tsx";
+import TransparentBackground from "../TransparentBackground";
 
 export default function Navigation() {
   const [isNavigationActive, setIsNavigationActive] = useState(false);
