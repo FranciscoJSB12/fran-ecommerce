@@ -67,7 +67,7 @@ export default function AuthForm({ isLoggingIn }: AuthFormProps) {
       {!isLoggingIn && (
         <>
           <AuthInput
-            name="checkedPassword"
+            name="repeatPassword"
             type="password"
             placeHolder="Repeat password"
             changeHandler={changeHandler}
