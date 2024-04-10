@@ -1,7 +1,12 @@
-import { useState } from "react";
+import { useState, MouseEvent } from "react";
+import type { ProductType } from "@/models/product";
+import type { PickedProductType } from "@/models/pickedProduct";
 
 export default function useShoppingCart() {
   const [isShoppingCartOpen, setIsShoppingCartOpen] = useState(false);
+  const [shoppingCartItems, setShoppingCartItems] = useState<
+    PickedProductType[]
+  >([]);
 
   const closeShoppingCart = (): void => {
     setIsShoppingCartOpen(false);
@@ -11,9 +16,20 @@ export default function useShoppingCart() {
     setIsShoppingCartOpen(true);
   };
 
+  const addProductToCart = (
+    e: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>,
+    product: ProductType
+  ): void => {
+    e.stopPropagation();
+    openShoppingCart();
+    setShoppingCartItems((prev) => [...prev, { ...product, quantity: 1 }]);
+  };
+
   return {
     isShoppingCartOpen,
     closeShoppingCart,
     openShoppingCart,
+    shoppingCartItems,
+    addProductToCart,
   };
 }

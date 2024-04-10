@@ -13,18 +13,9 @@ export default function useProductCard() {
     setIsProductDetailOpen(false);
   };
 
-  const addProductToCart = (
-    e: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>,
-    openShoppingCart: openShoppingCartType
-  ): void => {
-    e.stopPropagation();
-    openShoppingCart();
-  };
-
   return {
     isProductDetailOpen,
     openProductDetail,
     closeProductDetail,
-    addProductToCart,
   };
 }

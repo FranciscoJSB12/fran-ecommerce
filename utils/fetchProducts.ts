@@ -1,6 +1,5 @@
+import { URL } from "./urls";
 import type { ProductType } from "@/models/product";
-
-const URL = "https://ecommerce-backend-puce.vercel.app/api/products";
 
 interface ProductResponse {
   ok: boolean;

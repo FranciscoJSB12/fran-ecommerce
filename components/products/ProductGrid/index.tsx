@@ -9,8 +9,13 @@ interface ProductGridProps {
 }
 
 export default function ProductGrid({ products }: ProductGridProps) {
-  const { isShoppingCartOpen, openShoppingCart, closeShoppingCart } =
-    useShoppingCart();
+  const {
+    isShoppingCartOpen,
+    openShoppingCart,
+    closeShoppingCart,
+    addProductToCart,
+    shoppingCartItems,
+  } = useShoppingCart();
 
   return (
     <>
@@ -19,15 +24,20 @@ export default function ProductGrid({ products }: ProductGridProps) {
           <ProductCard
             product={p}
             key={p.id}
-            openShoppingCart={openShoppingCart}
+            addProductToCart={addProductToCart}
+            shoppingCartItems={shoppingCartItems}
           />
         ))}
       </section>
       <ShoppingCart
         isShoppingCartOpen={isShoppingCartOpen}
         closeShoppingCart={closeShoppingCart}
+        shoppingCartItems={shoppingCartItems}
       />
-      <ShoppingCartBtn openShoppingCart={openShoppingCart} />
+      <ShoppingCartBtn
+        openShoppingCart={openShoppingCart}
+        totalProducts={shoppingCartItems.length}
+      />
     </>
   );
 }

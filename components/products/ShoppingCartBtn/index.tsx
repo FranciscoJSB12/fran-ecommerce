@@ -2,10 +2,12 @@ import { ShoppingBagIcon } from "@heroicons/react/24/outline";
 
 interface ShoppingCartBtnProps {
   openShoppingCart: () => void;
+  totalProducts: number;
 }
 
 export default function ShoppingCartBtn({
   openShoppingCart,
+  totalProducts,
 }: ShoppingCartBtnProps) {
   return (
     <aside
@@ -13,7 +15,7 @@ export default function ShoppingCartBtn({
       onClick={openShoppingCart}
     >
       <ShoppingBagIcon className="h-6 w-6 text-white" />
-      <span className="text-white">{0}</span>
+      <span className="text-white">{totalProducts}</span>
     </aside>
   );
 }

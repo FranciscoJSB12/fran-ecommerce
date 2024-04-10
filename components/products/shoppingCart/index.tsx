@@ -1,12 +1,15 @@
 import { XMarkIcon } from "@heroicons/react/24/outline";
+import type { PickedProductType } from "@/models/pickedProduct";
 import TransparentBackground from "@/components/ui/TransparentBackground";
 
 interface ShoppingCartProps {
+  shoppingCartItems: PickedProductType[];
   isShoppingCartOpen: boolean;
   closeShoppingCart: () => void;
 }
 
 export default function ShoppingCart({
+  shoppingCartItems,
   isShoppingCartOpen,
   closeShoppingCart,
 }: ShoppingCartProps) {
@@ -23,7 +26,11 @@ export default function ShoppingCart({
             <XMarkIcon className="h-6 w-6 text-black" />
           </div>
         </div>
-        <div className="px-6 overflow-y-scroll flex-1">Products here</div>
+        <div className="px-6 overflow-y-scroll flex-1">
+          {shoppingCartItems.map((p) => (
+            <p key={p.id}>{p.name}</p>
+          ))}
+        </div>
         <div className="px-6 pb-6">
           <p className="flex flex-row justify-between items-center m-4">
             <span className="font-light">Total:</span>
