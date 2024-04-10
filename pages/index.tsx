@@ -20,6 +20,9 @@ export default function Home({ products, ok }: HomeProps) {
           content="franStore is an ecommerce developed by franjs"
         />
       </Head>
+      <Head>
+        <meta name="keywords" content="fran, store, franstore, franjs" />
+      </Head>
       <CategoryLayout responseOk={ok} productsQty={products.length}>
         <ProductGrid products={products} />
       </CategoryLayout>
