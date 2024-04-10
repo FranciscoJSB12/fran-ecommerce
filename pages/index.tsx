@@ -1,3 +1,4 @@
+import Head from "next/head";
 import type { GetStaticProps } from "next";
 import CategoryLayout from "@/components/ui/CategoryLayout";
 import ProductGrid from "@/components/products/ProductGrid";
@@ -11,9 +12,18 @@ interface HomeProps {
 
 export default function Home({ products, ok }: HomeProps) {
   return (
-    <CategoryLayout responseOk={ok} productsQty={products.length}>
-      <ProductGrid products={products} />
-    </CategoryLayout>
+    <>
+      <Head>
+        <title>Home - franStore</title>
+        <meta
+          name="description"
+          content="franStore is an ecommerce developed by franjs"
+        />
+      </Head>
+      <CategoryLayout responseOk={ok} productsQty={products.length}>
+        <ProductGrid products={products} />
+      </CategoryLayout>
+    </>
   );
 }
 

@@ -1,8 +1,8 @@
 import { MouseEvent } from "react";
-import useProductCard from "@/hooks/products/useProductCard";
 import { PlusIcon, CheckIcon } from "@heroicons/react/24/outline";
-import type { ProductType } from "@/models/product";
+import useProductCard from "@/hooks/products/useProductCard";
 import ProductDetail from "../ProductDetail";
+import type { ProductType } from "@/models/product";
 
 interface ProductCardProps {
   product: ProductType;
@@ -20,7 +20,6 @@ export default function ProductCard({
 }: ProductCardProps) {
   const { isProductDetailOpen, openProductDetail, closeProductDetail } =
     useProductCard();
-
   const renderIcon = (): JSX.Element => {
     const isItemInCart = shoppingCartItems.some((p) => p.id === product.id);
 

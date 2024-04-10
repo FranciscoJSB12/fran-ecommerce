@@ -1,5 +1,6 @@
 import useShoppingCart from "@/hooks/products/useShoppingCart";
 import ProductCard from "../ProductCard";
+import ProductDetail from "../ProductDetail";
 import ShoppingCart from "../shoppingCart";
 import ShoppingCartBtn from "@/components/products/ShoppingCartBtn";
 import type { ProductType } from "@/models/product";
