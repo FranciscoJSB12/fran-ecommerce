@@ -8,11 +8,11 @@ export default function NavigationOptions({
   closeNavigation,
 }: NavigationOptionProps) {
   return (
-    <ul className="flex flex-col items-center gap-6 py-5">
-      <li onClick={closeNavigation}>
+    <ul className="w-full flex flex-col items-center py-5">
+      <li className="w-11/12" onClick={closeNavigation}>
         <NavigationItem href="/auth/register" text="Register" />
       </li>
-      <li onClick={closeNavigation}>
+      <li className="w-11/12" onClick={closeNavigation}>
         <NavigationItem href="/auth/login" text="Log in" />
       </li>
     </ul>
