@@ -1,5 +1,5 @@
-import { URL } from "./urls";
-import type { ProductType } from "@/models/product";
+import { URL } from './urls';
+import type { ProductType } from '@/interfaces/product';
 
 interface ProductResponse {
   ok: boolean;

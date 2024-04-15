@@ -1,9 +1,9 @@
-import Head from "next/head";
-import type { GetStaticProps } from "next";
-import CategoryLayout from "@/components/ui/CategoryLayout";
-import ProductGrid from "@/components/products/ProductGrid";
-import type { ProductType } from "@/models/product";
-import { fecthProducts } from "@/utils/fetchProducts";
+import Head from 'next/head';
+import type { GetStaticProps } from 'next';
+import CategoryLayout from '@/components/ui/CategoryLayout';
+import ProductGrid from '@/components/products/ProductGrid';
+import type { ProductType } from '@/interfaces/product';
+import { fecthProducts } from '@/utils/fetchProducts';
 
 interface HomeProps {
   ok: boolean;
@@ -19,8 +19,6 @@ export default function Home({ products, ok }: HomeProps) {
           name="description"
           content="franStore is an ecommerce developed by franjs"
         />
-      </Head>
-      <Head>
         <meta name="keywords" content="fran, store, franstore, franjs" />
       </Head>
       <CategoryLayout responseOk={ok} productsQty={products.length}>

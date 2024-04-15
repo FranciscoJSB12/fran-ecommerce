@@ -1,6 +1,6 @@
-import { XMarkIcon } from "@heroicons/react/24/outline";
-import TransparentBackground from "@/components/ui/TransparentBackground";
-import type { ProductType } from "@/models/product";
+import { XMarkIcon } from '@heroicons/react/24/outline';
+import TransparentBackground from '@/components/ui/TransparentBackground';
+import type { ProductType } from '@/interfaces/product';
 
 interface ProductDetailProps {
   isProductDetailOpen: boolean;
@@ -17,7 +17,7 @@ export default function ProductDetail({
     <>
       <aside
         className={`transition-all ease-in-out duration-300 ${
-          !isProductDetailOpen ? "right-[-384px]" : "right-0"
+          !isProductDetailOpen ? 'right-[-384px]' : 'right-0'
         } w-full max-w-sm h-screen flex fixed top-0  flex-col z-20 bg-white`}
       >
         <div className="w-full p-6 flex justify-between items-center">

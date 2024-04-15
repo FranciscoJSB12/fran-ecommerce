@@ -1,6 +1,6 @@
-import { useState, MouseEvent } from "react";
-import type { ProductType } from "@/models/product";
-import type { PickedProductType } from "@/models/pickedProduct";
+import { useState, MouseEvent } from 'react';
+import type { ProductType } from '@/interfaces/product';
+import type { PickedProductType } from '@/interfaces/pickedProduct';
 
 export default function useShoppingCart() {
   const [isShoppingCartOpen, setIsShoppingCartOpen] = useState(false);

@@ -1,10 +1,9 @@
-import type { GetStaticProps, GetStaticPaths } from "next";
-import { fecthProducts } from "@/utils/fetchProducts";
-import CategoryLayout from "@/components/ui/CategoryLayout";
-import ProductGrid from "@/components/products/ProductGrid";
-import ProductCard from "@/components/products/ProductCard";
-import type { ProductType } from "@/models/product";
-import { PAGES_CATEGORIES } from "@/utils/pagesCategories";
+import type { GetStaticProps, GetStaticPaths } from 'next';
+import { fecthProducts } from '@/utils/fetchProducts';
+import CategoryLayout from '@/components/ui/CategoryLayout';
+import ProductGrid from '@/components/products/ProductGrid';
+import type { ProductType } from '@/interfaces/product';
+import { PAGES_CATEGORIES } from '@/utils/pagesCategories';
 
 interface CategoryProps {
   category: string;

@@ -1,6 +1,6 @@
-import { XMarkIcon } from "@heroicons/react/24/outline";
-import type { PickedProductType } from "@/models/pickedProduct";
-import TransparentBackground from "@/components/ui/TransparentBackground";
+import { XMarkIcon } from '@heroicons/react/24/outline';
+import type { PickedProductType } from '@/interfaces/pickedProduct';
+import TransparentBackground from '@/components/ui/TransparentBackground';
 
 interface ShoppingCartProps {
   shoppingCartItems: PickedProductType[];
@@ -17,7 +17,7 @@ export default function ShoppingCart({
     <>
       <aside
         className={`transition-all ease-in-out duration-300 ${
-          !isShoppingCartOpen ? "right-[-384px]" : "right-0"
+          !isShoppingCartOpen ? 'right-[-384px]' : 'right-0'
         } w-full max-w-sm h-screen flex flex-col fixed top-0 z-20 bg-white`}
       >
         <div className="w-full p-6 flex justify-between items-center">

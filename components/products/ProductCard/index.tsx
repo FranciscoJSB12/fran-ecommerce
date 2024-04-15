@@ -1,8 +1,8 @@
-import { MouseEvent } from "react";
-import { PlusIcon, CheckIcon } from "@heroicons/react/24/outline";
-import useProductCard from "@/hooks/products/useProductCard";
-import ProductDetail from "../ProductDetail";
-import type { ProductType } from "@/models/product";
+import { MouseEvent } from 'react';
+import { PlusIcon, CheckIcon } from '@heroicons/react/24/outline';
+import useProductCard from '@/hooks/products/useProductCard';
+import ProductDetail from '../ProductDetail';
+import type { ProductType } from '@/interfaces/product';
 
 interface ProductCardProps {
   product: ProductType;
