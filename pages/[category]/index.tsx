@@ -28,28 +28,26 @@ export default function Category({
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const preGeneratedPaths = PAGES_CATEGORIES.map((path) => ({
-    params: { category: path },
-  }));
-
   return {
-    paths: preGeneratedPaths,
+    paths: PAGES_CATEGORIES.map((path) => ({
+    params: { category: path },
+    })),
     fallback: false,
   };
 };
 
-export const getStaticProps: GetStaticProps = async (context) => {
-  const slug = context.params?.category;
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const { category } = params as { category: string};
 
   const { products, ok } = await fecthProducts();
 
   const categoryProducts = products.filter(
-    (p) => p.category.toLowerCase() === slug
+    (p) => p.category.toLowerCase() === category
   );
 
   return {
     props: {
-      category: slug,
+      category,
       categoryProducts,
       ok,
     },
